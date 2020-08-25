@@ -6,9 +6,10 @@ class AccountActivationsController < ApplicationController
       @user.update(activated: true, activated_at: Time.zone.now)
       login(@user)
       flash[:success] = 'your account has been activate'
-      redirect_to path
+      redirect_to root_path
     else
       flash[:danger] = 'something went wrong'
+      redirect_to root_path
     end
   end
 end
