@@ -11,6 +11,9 @@
 
   <body>
     <%= render 'shared/nav' %>
+    <div class="container">
+      <%= render 'shared/flash',style:"margin-top:60px" %>
     <%= yield %>
+  </div>
   </body>
 </html>

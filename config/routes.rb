@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new', to: 'sessions#new'
+  get 'sessions/create', to: 'sessions#create'
   root 'statics#page'
 
   resources :users

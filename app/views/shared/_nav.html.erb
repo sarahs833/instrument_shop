@@ -1,8 +1,14 @@
 <div class="fixed-top">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
-      <h5 class="text-white h4">Collapsed content</h5>
-      <span class="text-muted">Toggleable via the navbar brand.</span>
+      <h5 class="text-white h4">Make your life an musical journey</h5>
+      <% if current_user.present? %>
+        <span>log out</span>
+      <%else%>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#session">
+          log in
+        </button>
+      <%end%>
     </div>
   </div>
   <nav class="navbar navbar-dark bg-dark">
