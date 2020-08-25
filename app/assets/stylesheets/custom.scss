@@ -1,2 +1,12 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bootstrap/scss/bootstrap";
+
+#banner {
+  background-image: url(instrument.png);
+  height:80vh;
+  width:80vw;
+  margin-top:50px
+}
+
+h2 {
+  color:white
+}
