@@ -43,5 +43,15 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_not is_logged_in?
   end
 
+  test 'should be able to logout' do
+    get root_path
+    assert_select 'button', 'log in', count:1
+    assert_select 'a[href=?]', sessions_destroy_path, count:0
+    post sessions_create_path, params: { session: {email: @user.email, password:'password'}}
+    assert is_logged_in?
+    delete sessions_destroy_path
+    assert_not is_logged_in?
+  end
+
 
 end
