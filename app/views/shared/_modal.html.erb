@@ -23,7 +23,17 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <%=f.submit "submit", class:"btn btn-primary" %>
        <%end%>
+        <button id="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#reset_password">
+          password forgotten
+        </button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  var button = document.querySelector('#button')
+  button.addEventListener('click', function(){
+    $('#exampleModal').modal('hide');
+  })
+</script>

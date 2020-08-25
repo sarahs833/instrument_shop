@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  attr_accessor :activate_token
+  attr_accessor :activate_token,:reset_token
 
   validates :name, presence: true, length: { maximum:50 }
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
@@ -39,5 +39,15 @@ class User < ApplicationRecord
 
   def send_activation_mail
     UserMailer.account_activation(self).deliver_now
+  end
+
+  def set_reset_digest
+    self.reset_token = User.new_token
+    digest = User.digest(self.reset_token)
+    self.update(reset_digest: digest)
+  end
+
+  def send_reset_password
+    UserMailer.password_reset(self).deliver_now
   end
 end
