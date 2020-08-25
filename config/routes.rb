@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/new', to: 'sessions#new'
-  get 'sessions/create', to: 'sessions#create'
+  post 'sessions/create', to: 'sessions#create'
+  delete 'sessions/destroy', to: 'sessions#destroy'
   root 'statics#page'
 
   resources :users

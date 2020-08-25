@@ -5,13 +5,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.save
-      flash[:success] = "please check your email to activate your account"
-      redirect_to root_path
-    else
-      flash[:danger] = "User haven't been create"
-      redirect_to root_path
-    end
+      if @user.save
+        flash[:success] = "please check your email to activate your account"
+        redirect_to root_path
+      else
+        flash[:danger] = 'error: ' + @user.errors.full_messages.to_sentence
+        redirect_to root_path
+      end
   end
 
   private
