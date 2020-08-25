@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'sessions/new', to: 'sessions#new'
   post 'sessions/create', to: 'sessions#create'
   delete 'sessions/destroy', to: 'sessions#destroy'
+  resources :account_activations, only: [:edit]
   root 'statics#page'
 
   resources :users

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
       if @user.save
+        @user.send_activation_mail
         flash[:success] = "please check your email to activate your account"
         redirect_to root_path
       else
