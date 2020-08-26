@@ -9,3 +9,4 @@ two:
   name: alex
   email: alex@gmail.com
   password_digest: <%= User.digest('password') %>
+  activated: true

@@ -5,12 +5,17 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:password_reset][:email])
-    if @user && @user.activated?
-       @user.set_reset_digest
-       @user.save
-       @user.send_reset_password
-       flash[:notice] = 'please check your email to reset password'
-       redirect_to root_path
+    if @user
+      if !@user.activated?
+         flash[:danger] = 'You need to activate your email before changing the password'
+         redirect_to root_path
+      else
+         @user.set_reset_digest
+         @user.save
+         @user.send_reset_password
+         flash[:notice] = 'Please check your email to reset password'
+         redirect_to root_path
+      end
     else
       flash[:danger] = 'user not found'
       redirect_to root_path
@@ -18,10 +23,11 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
+    @user = User.new
   end
 
   def update
-    @user = @user.find_by(email: params[:email])
+    @user = User.find_by(email: params[:email])
     if @user && @user.activated? && @user.authenticated?(:reset, params[:id])
        @user.update(user_params)
        @user.update(reset_sent_at: Time.zone.now)
@@ -37,7 +43,7 @@ class PasswordResetsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email,:password)
+    params.require(:user).permit(:password,:password_confirmation)
   end
 
 

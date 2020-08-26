@@ -1,0 +1,11 @@
+<div class="container" style="margin-top:100px">
+ <%= form_with(model: @user, url: password_reset_path(params[:id]),method: :patch,local: true) do |f| %>
+      <%= render 'shared/errors', object: f.object %>
+      <%= hidden_field_tag :email, params[:email] %>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.submit "Update password", class: "btn btn-primary" %>
+    <% end %>
+</div>
