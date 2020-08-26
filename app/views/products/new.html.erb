@@ -1,13 +1,2 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
-<div class="container">
-  <%= simple_form_for @product do |f| %>
-      <%= render 'shared/errors', object: f.object %>
-      <%= f.input :brand%>
-      <%= f.input :price %>
-      <%= f.input :categorie_name, :collection => Categorie.all.distinct.pluck(:name) %>
-      <%= f.input :image, as: :file, label: "upload image" %>
-      <%= f.submit "create product", class: "btn btn-primary" %>
-  <% end %>
+<%= render 'form' %>
 
-</div>

@@ -23,4 +23,5 @@
   <div class="container">
     <%=render'products/product', collection:@products%>
   </div>
+      <%= will_paginate(@products,:renderer => WillPaginate::ActionView::LinkRenderer) %>
 <div>

@@ -25,9 +25,13 @@ class ProductsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
+    @product.update_categorie(params[:product][:categorie_name]) if params[:product][:categorie_name].present?
+    @product.update(params_product)
+    redirect_to root_path
   end
 
   def destroy

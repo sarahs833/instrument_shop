@@ -1,6 +1,6 @@
 class StaticsController < ApplicationController
   def page
     @user = User.new
-    @products = Product.all
+    @products = Product.paginate(page: params[:page])
   end
 end

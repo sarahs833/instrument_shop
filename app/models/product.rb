@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  self.per_page = 8
   attr_accessor :categorie_name
   belongs_to :categorie
   belongs_to :user
@@ -16,6 +17,15 @@ class Product < ApplicationRecord
   def set_categorie(name)
     categorie = Categorie.find_or_create_by(name: name)
     self.categorie_id = categorie.id
+  end
+
+  def update_categorie(name)
+    categorie = Categorie.find_or_create_by(name: name)
+    self.update(categorie_id:categorie.id)
+  end
+
+  def update_image
+
   end
 
 end

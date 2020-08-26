@@ -1,0 +1,10 @@
+<div class="container" style="margin-top:80px">
+  <%= simple_form_for @product do |f| %>
+      <%= render 'shared/errors', object: f.object %>
+      <%= f.input :brand%>
+      <%= f.input :price %>
+      <%= f.input :categorie_name, :collection => Categorie.all.distinct.pluck(:name) %>
+      <%= f.input :image, as: :file, label: "upload image" %>
+      <%= f.submit "create product", class: "btn btn-primary" %>
+  <% end %>
+</div>
