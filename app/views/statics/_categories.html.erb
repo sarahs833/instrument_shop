@@ -1,0 +1,5 @@
+<div class="row" style="display:flex;justify-content: space-around;align-items: center">
+<% @categories.each do |categorie| %>
+  <%=link_to categorie.name, root_path(categorie: categorie.name)%>
+<%end%>
+</div>
