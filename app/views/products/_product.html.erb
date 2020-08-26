@@ -1,9 +1,12 @@
+<div class="row">
 <%@products.each do |product| %>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card col-sm-4" style="width: 18rem;">
+    <%= image_tag product.display_image, class:"card-img-top" if product.image.attached? %>
     <div class="card-body">
       <p class="card-text"><%=product.brand%></p>
       <p class="card-text"><%=to_currency(product)%></p>
+      <%=can_edit_product(product)%>
     </div>
   </div>
 <%end%>
+</div>

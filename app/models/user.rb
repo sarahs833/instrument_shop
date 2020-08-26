@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   attr_accessor :activate_token,:reset_token
+  has_many :products
 
   validates :name, presence: true, length: { maximum:50 }
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
