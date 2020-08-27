@@ -15,8 +15,10 @@ class LineitemsController < ApplicationController
 
   def destroy
     @line_item = Lineitem.find(params[:id])
-    @line_item.destroy
-
+    @item = @line_item.check_quantity
+    @item.save
+    @cart = current_cart
+    redirect_to @cart
   end
 
 
