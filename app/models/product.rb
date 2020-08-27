@@ -9,6 +9,7 @@ class Product < ApplicationRecord
                                   message: "must be a valid image format" },
                                   size: { less_than: 5.megabytes,
                                   message: "should be less than 5MB" }
+   CONDITION = %w{ New Excellent Mint Used Poor }
 
   searchkick word_start: [:brand]
   def search_data

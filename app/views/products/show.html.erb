@@ -1,5 +1,14 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
 
-<%=@product.brand%>
-<%= image_tag @product.display_image if @product.image.attached? %>
+<div style="height:100vh;width:100vw;margin-top:100px;display:flex">
+  <div style="width:30vw">
+  <%= image_tag @product.display_image, style:"width:400px" if @product.image.attached? %>
+  </div>
+  <div style="padding:60px">
+    <%=@product.brand %>
+    <%=to_currency(@product)%>
+    <%=badge_color(@product)%>
+    <p>product description</p>
+    <%=@product.description%>
+  </div>
+
+</div>

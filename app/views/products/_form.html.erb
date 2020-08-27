@@ -1,10 +1,15 @@
 <div class="container" style="margin-top:80px">
   <%= simple_form_for @product do |f| %>
       <%= render 'shared/errors', object: f.object %>
-      <%= f.input :brand%>
-      <%= f.input :price %>
-      <%= f.association :categorie, :collection => Categorie.all%>
-      <%= f.input :image, as: :file, label: "upload image" %>
+      <%= f.input :brand,:input_html => {class:'form-control'} %>
+      <%= f.input :price,:input_html => {class:'form-control'} %>
+      <%= f.association :categorie, :collection => Categorie.all,:input_html => {class:'form-control'}%>
+      <%= f.input :condition, :collection => Product::CONDITION ,:input_html => {class:'form-control'}%>
+      <%= f.input :description, as: :text, :input_html => { class: 'form-control', :cols => 5, :rows => 10 } %>
+      <%= f.input :image, as: :file, :input_html => {class:'form-control'} %>
+      <br>
       <%= f.submit "create product", class: "btn btn-primary" %>
   <% end %>
 </div>
+
+
