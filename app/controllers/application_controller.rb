@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
+ include ApplicationHelper
 
+ before_action :current_cart
  before_action :current_user
  helper_method :current_user
 

@@ -4,11 +4,14 @@
   <%= image_tag @product.display_image, style:"width:400px" if @product.image.attached? %>
   </div>
   <div style="padding:60px">
-    <%=@product.brand %>
-    <%=to_currency(@product)%>
-    <%=badge_color(@product)%>
-    <p>product description</p>
-    <%=@product.description%>
+    <div style="display:flex;flex-direction:column">
+      <%=@product.brand %>  <%=to_currency(@product)%>
+      <%=badge_color(@product)%>
+    </div>
+    <div style="margin-top:50px;display:flex;flex-direction:column">
+      <p>product description</p>
+      <%=@product.description%>
+      <%= button_to "Add to Card", lineitems_path(product_id:@product.id), :method => "post", class:"btn btn-warning",style:"margin-top:50px;width:10vw" %>
+    </div>
   </div>
-
 </div>

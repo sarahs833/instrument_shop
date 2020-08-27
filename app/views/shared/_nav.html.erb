@@ -2,14 +2,17 @@
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <h5 class="text-white h4">Make your life an musical journey</h5>
-      <% if current_user.present? %>
-          <%=link_to "logout", sessions_destroy_path,  method: :delete%>
-          <%= link_to "add instruments",new_product_path %>
-      <%else%>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#session">
-          log in
-        </button>
-      <%end%>
+       <div style="display:flex;flex-direction:column">
+        <%=link_to "Home",root_path,class:"links" %>
+        <% if current_user.present? %>
+            <%= link_to "Sell instruments",new_product_path,class:"links" %>
+            <%=link_to "Logout", sessions_destroy_path,  method: :delete,class:"links"%>
+        <%else%>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#session">
+            log in
+          </button>
+        <%end%>
+      </div>
     </div>
   </div>
   <nav class="navbar navbar-dark bg-dark">
