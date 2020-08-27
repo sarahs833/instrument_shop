@@ -9,12 +9,11 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @categorie = Categorie.all.distinct.pluck(:name)
+    @categorie = Categorie.with_name
   end
 
   def create
     @product = current_user.products.new(params_product)
-    @product.set_categorie(params[:product][:categorie_name])
     if @product.save
       redirect_to @product
     else
@@ -28,7 +27,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.update_categorie(params[:product][:categorie_name]) if params[:product][:categorie_name].present?
     @product.update(params_product)
     redirect_to root_path
   end
@@ -44,6 +42,6 @@ class ProductsController < ApplicationController
   private
 
   def params_product
-    params.require(:product).permit(:brand,:price,:categorie_name,:image)
+    params.require(:product).permit(:brand,:price,:categorie_id,:image)
   end
 end

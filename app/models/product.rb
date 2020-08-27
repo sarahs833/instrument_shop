@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  self.per_page = 8
+  self.per_page = 9
   attr_accessor :categorie_name
   belongs_to :categorie
   belongs_to :user
@@ -12,16 +12,6 @@ class Product < ApplicationRecord
 
   def display_image
     image.variant(resize_to_limit: [500, 500])
-  end
-
-  def set_categorie(name)
-    categorie = Categorie.find_or_create_by(name: name)
-    self.categorie_id = categorie.id
-  end
-
-  def update_categorie(name)
-    categorie = Categorie.find_or_create_by(name: name)
-    self.update(categorie_id:categorie.id)
   end
 
   def update_image
