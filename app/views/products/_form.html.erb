@@ -3,7 +3,7 @@
       <%= render 'shared/errors', object: f.object %>
       <%= f.input :brand%>
       <%= f.input :price %>
-      <%= f.input :categorie_name, :collection => Categorie.all.distinct.pluck(:name) %>
+      <%= f.association :categorie, :collection => Categorie.all%>
       <%= f.input :image, as: :file, label: "upload image" %>
       <%= f.submit "create product", class: "btn btn-primary" %>
   <% end %>
