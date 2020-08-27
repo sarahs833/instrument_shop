@@ -14,8 +14,5 @@ class Product < ApplicationRecord
     image.variant(resize_to_limit: [500, 500])
   end
 
-  def update_image
-
-  end
 
 end

@@ -18,13 +18,18 @@
       <%= render 'shared/modal' %>
       <%= render 'shared/session' %>
       <%= render 'shared/password_forgotten' %>
+      </div>
     </div>
   </div>
+</div>
+
+<div style="display:flex;width:100vw">
+  <%=render 'shared/bar', collection:@categories %>
   <div class="container">
     <%=render 'categories', collection: @categories%>
   </div>
   <div class="container">
     <%=render'products/product', collection:@products%>
   </div>
-      <%= will_paginate(@products,:renderer => WillPaginate::ActionView::LinkRenderer) %>
-<div>
+</div>
+    <%= will_paginate(@products,:renderer => WillPaginate::ActionView::LinkRenderer) %>
