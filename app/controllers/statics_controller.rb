@@ -3,11 +3,10 @@ class StaticsController < ApplicationController
   def page
     @user = User.new
     @categories = Categorie.all
-      if params[:categorie].present?
-        @products = Categorie.find_by(name: params[:categorie]).products.paginate(page: params[:page])
-      else
-        @products = Product.paginate(page: params[:page])
-      end
+    query = params[:search].presence || "*"
+    conditions = {}
+    conditions[:categorie_name] = params[:categorie] if params[:categorie].present?
+    @products = Product.search query,where: conditions,match: :word_start, page: params[:page], per_page: 6
     respond_to do |format|
       format.js
       format.html
