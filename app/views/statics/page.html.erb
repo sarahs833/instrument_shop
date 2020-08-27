@@ -4,13 +4,7 @@
       <h2>Shop your instruments</h2>
     </div>
     <div class="row">
-     <% if current_user %>
-      <div class="form-group mx-sm-3 mb-2">
-        <label for="inputPassword2" class="sr-only">Password</label>
-        <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
-     <%else%>
+     <% unless current_user %>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Get Started!
       </button>
