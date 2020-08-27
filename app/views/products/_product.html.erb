@@ -1,7 +1,10 @@
 <div class="row">
 <%@products.each do |product| %>
   <div class="card col-sm-4" style="width: 18rem;">
-    <%= image_tag product.display_image, class:"card-img-top" if product.image.attached? %>
+    <% if product.image.attached? %>
+      <%= link_to (image_tag product.display_image, class:"card-img-top"), product_path(product.id) %>
+      <%=badge_color(product)%>
+    <%end%>
     <div class="card-body">
       <p class="card-text"><%=product.categorie.name%></p>
       <p class="card-text"><%=product.brand%></p>

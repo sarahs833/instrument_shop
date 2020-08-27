@@ -23,7 +23,13 @@
   </div>
 
   <div class="container">
-    <%=render 'categories', collection: @categories%>
+     <div class="form-group mx-sm-3 mb-2">
+    <%= form_with( url: root_path, method: :get,romote: true) do |f| %>
+        <%=f.label :search ,class:"sr-only" %>
+        <%=f.text_field :search, class:"form-control"%>
+      </div>
+      <%=f.submit "search", class:"btn btn-primary mb-2"%>
+    <%end%>
   </div>
 <div style="display:flex;width:100vw">
   <%=render 'shared/bar', collection:@categories %>

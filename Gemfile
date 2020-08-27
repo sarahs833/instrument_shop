@@ -64,3 +64,4 @@ gem 'mini_magick', '4.9.5'
 gem 'simple_form'
 gem 'will_paginate', '3.1.8'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem "searchkick", github: "ankane/searchkick"

@@ -1,4 +1,6 @@
 <div style="width:10vw;text-align:center;display:flex;flex-direction: column">
+  <p>search by categories</p>
+  <%= link_to "all", root_path, remote:true %>
   <%@categories.each do |categorie| %>
     <%=link_to categorie.name,root_path(categorie:categorie.name),remote:true %>
   <%end%>
