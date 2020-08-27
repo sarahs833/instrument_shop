@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
  before_action :current_cart
  before_action :current_user
  helper_method :current_user
+ helper_method :current_cart
 
   def login(user)
     session[:user_id] = user.id

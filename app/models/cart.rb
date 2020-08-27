@@ -15,5 +15,8 @@ class Cart < ApplicationRecord
     self.lineitems.to_a.sum { |lineitem| lineitem.total }
   end
 
+  def total_item
+    self.lineitems.to_a.sum {|lineitem| lineitem.quantity}
+  end
 
 end

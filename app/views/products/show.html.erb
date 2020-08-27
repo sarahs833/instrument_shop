@@ -1,7 +1,7 @@
 
-<div style="height:100vh;width:100vw;margin-top:100px;display:flex">
+<div style="height:100vh;width:100vw;display:flex;align-items: center;padding:30px">
   <div style="width:30vw">
-  <%= image_tag @product.display_image, style:"width:400px" if @product.image.attached? %>
+  <%= image_tag @product.display_image, style:"width:400px;height:400px" if @product.image.attached? %>
   </div>
   <div style="padding:60px">
     <div style="display:flex;flex-direction:column">
