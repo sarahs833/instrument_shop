@@ -19,5 +19,13 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div style="margin-right:50px">
+      <span class="icon is-small">
+        <%=link_to cart_path(current_cart) do %>
+          <i class="fa fa-shopping-cart" style="color:#ffc107"></i>
+        <%end%>
+      </span>
+      <%=current_cart.total_item%>
+    </div>
   </nav>
 </div>
