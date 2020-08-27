@@ -6,9 +6,9 @@
       <%=badge_color(product)%>
     <%end%>
     <div class="card-body">
-      <p class="card-text"><%=product.categorie.name%></p>
       <p class="card-text"><%=product.brand%></p>
       <p class="card-text"><%=to_currency(product)%></p>
+      <p class="card-text">sold by <%=product.user.name%></p>
       <%=can_edit_product(product)%>
     </div>
   </div>
