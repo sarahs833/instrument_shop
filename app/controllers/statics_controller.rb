@@ -1,4 +1,5 @@
 class StaticsController < ApplicationController
+
   def page
     @user = User.new
     @categories = Categorie.all

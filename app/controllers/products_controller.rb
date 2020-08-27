@@ -14,7 +14,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_user.products.new(params_product)
-    @product.image.attach(params[:product][:image])
     if @product.save
       redirect_to @product
     else

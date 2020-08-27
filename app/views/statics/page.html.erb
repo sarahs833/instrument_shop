@@ -26,6 +26,9 @@
 <div style="display:flex;width:100vw">
   <%=render 'shared/bar', collection:@categories %>
   <div class="container">
+    <%=render 'categories', collection: @categories%>
+  </div>
+  <div class="container">
     <%=render'products/product', collection:@products%>
   </div>
 </div>
