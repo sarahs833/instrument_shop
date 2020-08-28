@@ -1,7 +1,7 @@
 <div class="container" id="banner">
   <div class="d-flex justify-content-center align-items-center flex-column" style="height:100%;width:100%">
     <div class="row">
-      <h2>Shop your instruments</h2>
+      <h2 style="text-shadow:#797a7e 0px 0px 10px">Shop your instruments</h2>
     </div>
     <div class="row">
      <% unless current_user %>
@@ -16,18 +16,20 @@
     </div>
   </div>
 
-  <div class="container">
-     <div class="form-group mx-sm-3 mb-2">
+   <div style="width:50vw;margin-left:400px;margin-top:30px">
     <%= form_with( url: root_path, method: :get,romote: true) do |f| %>
-        <%=f.label :search ,class:"sr-only" %>
-        <%=f.text_field :search, class:"form-control"%>
-      </div>
-      <%=f.submit "search", class:"btn btn-primary mb-2"%>
+     <div class="search-form-control form-group">
+      <%=f.text_field :search ,class:"form-control string required",id:"search_query" %>
+      <%=button_tag(:class=>"btn btn-flat",:style=>"background:#ffc93c") do%>
+        Search <i class="fas fa-search"></i>
+      <%end%>
+    </div>
     <%end%>
   </div>
-<div style="display:flex;width:100vw">
+  <div>
+<div style="display:flex;width:100vw;margin-left:50px">
   <%=render 'shared/bar', collection:@categories %>
-  <div class="container" id="product_list">
+  <div class="container" style="margin-left:40px" id="product_list">
     <%=render'products/product', collection:@products%>
   </div>
 </div>

@@ -9,11 +9,13 @@
           <p>buying unit: <%=lineitem.quantity%></p>
           <p><strong>total price: </strong><%=number_to_currency(lineitem.total)%></p>
         </div>
-          <%=button_to "Delete", lineitem_path(lineitem),:method=>'delete',class:"btn btn-danger"%>
+          <%=button_to "Delete item", lineitem_path(lineitem),:method=>'delete',class:"btn btn-danger"%>
       </div>
     <%end%>
-
-    <h3>TOTAL: <%=number_to_currency(@cart.total_sum)%></h3>
+    <div style="margin-top:30px">
+      <h3>TOTAL: <%=number_to_currency(@cart.total_sum)%></h3>
+      <%=button_to "Clear card",cart_path(current_cart),:method=>'delete',class:'btn btn-dark'%>
+    </div>
   </div>
 </div>
 

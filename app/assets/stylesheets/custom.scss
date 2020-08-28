@@ -12,7 +12,12 @@ h2 {
 }
 
 .links:hover {
-  text-decoration:none
+  text-decoration:none;
+  color:#ffe78f
+}
+
+.links {
+  color:#ffc107
 }
 
 .card-product {
@@ -46,4 +51,27 @@ h2 {
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.search-form-control {
+  position: relative;
+}
+
+.search-form-control .btn {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+}
+
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid #e3dfc8;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
