@@ -1,4 +1,5 @@
 class StaticsController < ApplicationController
+  before_action :current_cart,only:[:page]
 
   def page
     @user = User.new
