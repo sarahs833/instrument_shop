@@ -1,0 +1,12 @@
+<div class="container-fluid mt-3">
+  <div class="row d-flex justify-content-center" >
+    <%= form_with( url: root_path, method: :get,romote: true, class:"col-lg-6 col-sm-10") do |f| %>
+     <div class="search-form-control form-group">
+      <%=f.text_field :search ,class:"form-control string required",id:"search_query" %>
+      <%=button_tag(:class=>"btn btn-flat",:style=>"background:#ffc93c") do%>
+        Search <i class="fas fa-search"></i>
+      <%end%>
+    </div>
+    <%end%>
+  </div>
+</div>
