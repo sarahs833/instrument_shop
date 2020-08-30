@@ -78,6 +78,14 @@ figure {
           transform: translateZ(0);
   will-change: transform;
 }
+.white {
+  color:white
+}
+
+.white:hover {
+  color:#f0a500;
+  text-decoration:none
+}
 
 .links:hover {
   text-decoration:none;
