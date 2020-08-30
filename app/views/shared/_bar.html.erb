@@ -1,9 +1,9 @@
-<div style="width:10vw;text-align:center;display:flex;flex-direction: column">
+<div class="col-lg-2 text-center">
     <p class="quote">Search by categories</p>
   <div>
-    <p class="links border"><%= link_to "ALL", root_path, remote:true,class:"links" %></p>
+    <%= link_to "ALL", root_path, remote:true,class:"links border m-3" %>
     <%@categories.each do |categorie| %>
-     <p class="links border"><%=link_to categorie.name,root_path(categorie:categorie.name),remote:true ,class:"links"%><p>
+     <%=link_to categorie.name,root_path(categorie:categorie.name),remote:true ,class:"links border m-3"%>
     <%end%>
   </div>
 </div>

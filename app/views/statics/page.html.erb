@@ -46,10 +46,12 @@
 <%= render 'shared/search' %>
 
 
-<div style="display:flex;width:100vw;margin-left:50px;margin-top:100px">
-  <%=render 'shared/bar', collection:@categories %>
-  <div style="margin-left:5px;margin-right:5px;" id="product_list">
-    <%=render'products/product', collection:@products%>
+<div class="container-fluid mt-5">
+  <div class="row">
+    <%=render 'shared/bar', collection:@categories %>
+    <div class="row col-lg-10">
+      <%=render'products/product', collection:@products%>
+    </div>
   </div>
 </div>
     <%= will_paginate(@products,:renderer => WillPaginate::ActionView::LinkRenderer) %>
