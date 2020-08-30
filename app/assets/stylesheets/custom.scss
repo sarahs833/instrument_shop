@@ -10,7 +10,15 @@
 
 }
 
+$font:"Times New Roman", Times, serif;
 
+h2 {
+  font-family:$font
+}
+
+p {
+  font-family:$font
+}
 
 .carousel-inner img {
   width:100%;
@@ -73,11 +81,14 @@ figure {
 
 .links:hover {
   text-decoration:none;
-  color:#ffe78f
+  color:white;
+  background-color:black
 }
 
 .links {
-  color:#ffc107
+  background-color:#dbdbdb;
+  color:white;
+  text-shadow:1px 1px 5px #000
 }
 
 .card-product {
@@ -168,6 +179,7 @@ figure {
 .footer-links {
   display: flex;
   align-items: center;
+  font-family:$font
 }
 .footer-links a {
   color: black;
