@@ -49,7 +49,7 @@
 <div class="container-fluid mt-5">
   <div class="row">
     <%=render 'shared/bar', collection:@categories %>
-    <div class="row col-lg-10">
+    <div class="row col-lg-10" id="product_list">
       <%=render'products/product', collection:@products%>
     </div>
   </div>
