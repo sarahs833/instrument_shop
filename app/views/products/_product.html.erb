@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row" style="display:flex;justify-content: center;width:90vw">
 <%@products.each do |product| %>
-  <div class="card col-sm-4" style="width: 18rem;">
+  <div class="card col-lg-3 col-sm-6" style="margin:10px">
     <% if product.image.attached? %>
-      <%= link_to (image_tag product.display_image, class:"card-img-top",style:"height:300px"), product_path(product.id) %>
+      <%= link_to (image_tag product.display_image, class:"card-img-top",style:"height:280px"), product_path(product.id) %>
       <%=badge_color(product)%>
     <%end%>
     <div class="card-body">
