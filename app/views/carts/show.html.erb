@@ -1,15 +1,15 @@
-<div style="margin-top:100px">
-  <%=button_to "Keep shopping", root_path, :method=>'get',class:"btn btn-warning",style:"transform:translate(1400px,10px)"%>
-  <div style="padding:50px" id="cart_list">
+<div class="container-fluid" style="margin-top:100px">
+  <div  class="row d-flex flex-column " style="padding:50px" id="cart_list">
+    <%=button_to "Keep shopping", root_path, :method=>'get',class:"btn btn-warning float-right"%>
     <%@cart.lineitems.each do |lineitem|%>
-      <div class="card-product">
+      <div class="card-product col-md-12 col-lg-10 m-2" style="display:flex;justify-content: space-evenly">
       <%=image_tag lineitem.product.display_image,style:"width:350px;height:250px"%>
         <div class="card-product-infos">
           <%=lineitem.product.brand %>
           <p>buying unit: <%=lineitem.quantity%></p>
           <p><strong>total price: </strong><%=number_to_currency(lineitem.total)%></p>
         </div>
-          <%=button_to "Delete item", lineitem_path(lineitem),:method=>'delete',class:"btn btn-danger"%>
+          <%=button_to "Delete item", lineitem_path(lineitem),:method=>'delete',class:"btn btn-danger float-right"%>
       </div>
     <%end%>
     <div style="margin-top:30px">
