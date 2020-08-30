@@ -1,14 +1,14 @@
 <div class="fixed-top">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
-      <h5 class="text-white h4">Make your life an musical journey</h5>
+      <h5 class="text-white h4">SoundFunny Co</h5>
        <div style="display:flex;flex-direction:column">
-        <%=link_to "Home",root_path %>
+        <%=link_to "Home",root_path,class:"white" %>
         <% if current_user.present? %>
-            <%= link_to "Sell instruments",new_product_path%>
+            <%= link_to "Sell instruments",new_product_path,class:"white"%>
             <%=link_to "Logout", sessions_destroy_path,  method: :delete%>
         <%else%>
-          <%=link_to "Log in", "#", data: { toggle:"modal", target:"#session"} %>
+          <%=link_to "Log in", "#", data: { toggle:"modal", target:"#session"}, class:"white" %>
         <%end%>
       </div>
     </div>
