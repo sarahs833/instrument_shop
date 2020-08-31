@@ -6,7 +6,7 @@
         <%=link_to "Home",root_path,class:"white" %>
         <% if current_user.present? %>
             <%= link_to "Sell instruments",new_product_path,class:"white"%>
-            <%=link_to "Logout", sessions_destroy_path,  method: :delete%>
+            <%=link_to "Logout", sessions_destroy_path,  method: :delete, class:"white"%>
         <%else%>
           <%=link_to "Log in", "#", data: { toggle:"modal", target:"#session"}, class:"white" %>
         <%end%>
