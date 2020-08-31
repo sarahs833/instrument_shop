@@ -3,12 +3,18 @@
       <%= render 'shared/errors', object: f.object %>
       <%= f.input :brand,:input_html => {class:'form-control'} %>
       <%= f.input :price,:input_html => {class:'form-control'} %>
-      <%= f.association :categorie, :collection => Categorie.all,:input_html => {class:'form-control'}%>
+      <%#= f.association :categorie, :collection => Categorie.all,:input_html => {class:'form-control'}%>
+      <%= f.input :categorie_name, :input_html => {list: "categories_autocomplete", class:'form-control'} %>
+      <datalist id="categories_autocomplete">
+        <% Categorie.all.each do |category| %>
+        <option value="<%=category.name%>">
+          <%end%>
+      </datalist>
       <%= f.input :condition, :collection => Product::CONDITION ,:input_html => {class:'form-control'}%>
       <%= f.input :description, as: :text, :input_html => { class: 'form-control', :cols => 5, :rows => 10 } %>
-      <%= f.input :image, as: :file, :input_html => {class:'form-control'} %>
+      <%= f.input :image, as: :file %>
       <br>
-      <%= f.submit "create product", class: "btn btn-primary" %>
+      <%= f.submit "create product", class: "btn btn-warning" %>
   <% end %>
 </div>
 

@@ -25,5 +25,13 @@ class Product < ApplicationRecord
     image.variant(resize_to_limit: [500, 500])
   end
 
+  def categorie_name=(name)
+    self.categorie = Categorie.find_or_create_by(name:name)
+  end
+
+  def category_name
+      self.category ? self.category.name : nil
+  end
+
 
 end
