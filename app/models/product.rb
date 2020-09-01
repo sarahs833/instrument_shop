@@ -11,12 +11,13 @@ class Product < ApplicationRecord
                                   message: "should be less than 5MB" }
    CONDITION = %w{ New Excellent Mint Used Poor }
 
-  searchkick word_start: [:brand]
+  searchkick word_start: [:brand,:condition,:categorie_name]
   def search_data
     {
       brand: brand,
       price: price,
-      categorie_name: categorie.name
+      categorie_name: categorie.name,
+      condition: CONDITION
     }
   end
 
