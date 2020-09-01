@@ -3,11 +3,18 @@
 one:
   categorie: one
   user: one
-  brand: MyString
+  brand: yamaha
   price: 9.99
+  condition: New
+  description: hello this is the description
+
 
 two:
   categorie: two
   user: two
-  brand: MyString
+  brand: yamaha
   price: 9.99
+  condition: New
+  description: hello this is the description
+
+

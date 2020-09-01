@@ -19,8 +19,8 @@ class ActiveSupport::TestCase
     !session[:user_id].nil?
   end
 
-  def current_cart_present?
-    !session[:cart_id].nil?
+  def current_cart?
+    session[:cart_id].nil?
   end
 
   def current_user(user)
