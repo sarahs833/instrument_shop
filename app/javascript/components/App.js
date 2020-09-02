@@ -25,32 +25,24 @@ class App extends Component {
       }
     })
     .then((data)=> {
-      console.log(data.data.data[0]['title']);
+      console.log(data.data.data);
       this.setState({
         artists: [...data.data.data]
       })
     }).then(() => {
-      console.log(this.state.artists[0])
+      console.log(this.state.artists)
     })
 
   }
 
 render(){
-  const artist = this.state.artists;
-  let first;
-  if (this.state.artists.length > 0 ) {
-    first = this.state.artists[0]['title']
-  } else {
-    first = null
-  }
   return(
     <div className="container-fluid mt-5">
       <div className='row'>
         <Search handleChange={this.handleChange} value={this.state.value} handleSubmit={this.handleSubmit} />
-        <List />
+        <List artists={this.state.artists}/>
       </div>
       <h2>{this.state.value}</h2>
-      <h3>{first}</h3>
     </div>
     )
   }
