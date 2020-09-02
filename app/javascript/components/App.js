@@ -3,11 +3,13 @@ import axios from 'axios';
 
 import Search from './Search';
 import List from './List';
+import Selected from './Selected';
 
 class App extends Component {
   state = {
     value: "",
-    artists: []
+    artists: [],
+    selected: []
   }
 
   handleChange = (e) => {
@@ -35,14 +37,22 @@ class App extends Component {
 
   }
 
+  handleClick = (id) => {
+
+    let selected = this.state.artists.find(artist => artist['id'] === parseInt(id,10))
+    console.log(selected)
+  }
+
 render(){
   return(
-    <div className="container-fluid mt-5">
+    <div className="container-fluid" style={{marginTop:"80px"}}>
       <div className='row'>
         <Search handleChange={this.handleChange} value={this.state.value} handleSubmit={this.handleSubmit} />
-        <List artists={this.state.artists}/>
+        <List artists={this.state.artists} handleClick={this.handleClick}/>
       </div>
-      <h2>{this.state.value}</h2>
+      <div className='row'>
+        <Selected />
+      </div>
     </div>
     )
   }
