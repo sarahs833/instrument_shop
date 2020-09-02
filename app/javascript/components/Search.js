@@ -8,8 +8,10 @@ class Search extends Component {
     return(
       <div className="col-lg-4">
        <form onSubmit={this.props.handleSubmit}>
-        <label>Search artists that you like</label>
-        <input className="form-control" placeholder='artists' value={this.props.value}  onChange={this.props.handleChange} />
+        <div className="form-group">
+          <label>Search artists that you like</label>
+          <input className="form-control" placeholder='artists' value={this.props.value}  onChange={this.props.handleChange} />
+        </div>
         <input type='submit' value='send' className="btn btn-warning" />
        </form>
       </div>
