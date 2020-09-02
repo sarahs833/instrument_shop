@@ -13,4 +13,8 @@ class StaticsController < ApplicationController
       format.html
     end
   end
+
+  def search_artist
+
+  end
 end

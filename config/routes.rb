@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete 'sessions/destroy', to: 'sessions#destroy'
   resources :account_activations, only: [:edit]
   root 'statics#page'
+  get 'search_artist' => 'statics#search_artist'
 
   resources :users
   resources :password_resets, only: [:new, :create,:edit,:update]
