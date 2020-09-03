@@ -3,13 +3,16 @@ import axios from 'axios';
 
 import Search from './Search';
 import List from './List';
-import Selected from './Selected';
 
 class App extends Component {
   state = {
     value: "",
     artists: [],
-    selected: []
+    selected: {
+      picture:"",
+      name: "",
+      link:""
+    }
   }
 
   handleChange = (e) => {
@@ -31,27 +34,27 @@ class App extends Component {
       this.setState({
         artists: [...data.data.data]
       })
-    }).then(() => {
-      console.log(this.state.artists)
     })
-
   }
 
   handleClick = (id) => {
-
-    let selected = this.state.artists.find(artist => artist['id'] === parseInt(id,10))
-    console.log(selected)
+    let newSelect = this.state.artists.find(artist => artist['id'] === parseInt(id,10))
+    let copy = Object.assign({}, this.state.selected);
+    copy['picture'] = newSelect['artist']['picture'];
+    copy['name'] = newSelect['artist']['name'];
+    copy['link'] = newSelect['link'];
+    copy['title'] = newSelect['title']
+    copy['album'] = newSelect['album']['title']
+    console.log(newSelect)
+    this.setState({selected: copy});
   }
 
 render(){
   return(
     <div className="container-fluid" style={{marginTop:"80px"}}>
       <div className='row'>
-        <Search handleChange={this.handleChange} value={this.state.value} handleSubmit={this.handleSubmit} />
+        <Search handleChange={this.handleChange} selected={this.state.selected} value={this.state.value} handleSubmit={this.handleSubmit} />
         <List artists={this.state.artists} handleClick={this.handleClick}/>
-      </div>
-      <div className='row'>
-        <Selected />
       </div>
     </div>
     )
