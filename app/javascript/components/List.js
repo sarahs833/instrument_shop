@@ -33,7 +33,8 @@ handleHoverOff = (e) => {
      )
    } else {
       return (
-       <div className="col-lg-8">
+       <div className="col-lg-8 text-center">
+          <h2>Launch the search engine</h2>
        </div>
       )
     }

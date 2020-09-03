@@ -22,7 +22,6 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit')
     axios.get(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${this.state.value}`, {
       headers: {
         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
