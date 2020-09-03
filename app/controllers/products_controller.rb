@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @user = User.new
     @product = Product.find(params[:id])
     @categorie = Categorie.with_name
     @lineitem = Lineitem.new
