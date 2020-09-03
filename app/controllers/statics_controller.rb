@@ -15,6 +15,6 @@ class StaticsController < ApplicationController
   end
 
   def search_artist
-
+    @user = User.new
   end
 end

@@ -19,7 +19,8 @@
     <div class="carousel-item">
       <%= image_tag 'guitarist.png',class:"d-block w-100" %>
       <div class="carousel-caption d-none d-md-block">
-         <h1>Express yourself through music.</h3>
+         <h1>Looking for inspiration? Check your favorite artists.</h3>
+          <%=button_to "Let's play", search_artist_path, method: :get ,class:"btn btn-outline-light btn-lg"%>
       </div>
     </div>
     <div class="carousel-item">
@@ -39,7 +40,6 @@
   </a>
 </div>
 <%= render 'shared/modal' %>
-<%= render 'shared/session' %>
 <%= render 'shared/password_forgotten' %>
 <%=render 'shared/quote'%>
 
